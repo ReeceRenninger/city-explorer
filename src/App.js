@@ -1,5 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Image from 'react-bootstrap/Image'
+import './App.css'
 // import image from 'react-bootstrap/Image'
 
 class App extends React.Component {
@@ -50,14 +54,13 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <h1>API Calls Baby!</h1>
+        <h1>API Calls!</h1>
 
-        <form onSubmit={this.getCityData}>
-          <label>
-            <input type="text" onChange={this.handleCityInput} />
-          </label>
-          <button type="submit">Explore!</button>
-        </form>
+        <Form onSubmit={this.getCityData}>
+          <Form.Label>City Explorer</Form.Label>
+            <Form.Control type="text" placeholder="Enter a city name here" onChange={this.handleCityInput} />
+          <Button variant="info" type="submit">Explore!</Button>
+        </Form>
 
         {/* TERNARY - WTF  */}
         {
@@ -68,7 +71,7 @@ class App extends React.Component {
               <p>{this.state.cityData.display_name}</p>
               <p>{this.state.cityData.lon}</p>
               <p>{this.state.cityData.lat}</p>
-              <img src= {`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=13`} alt='Map of selected location'/>
+              <Image class="img-fluid" src= {`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=13`} alt='Map of selected location'/>
             </ul>
 
         }
