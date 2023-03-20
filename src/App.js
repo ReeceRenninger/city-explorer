@@ -8,6 +8,8 @@ class App extends React.Component {
     this.state = {
       locationData: [],
       city: '',
+      cityLongitude: '',
+      cityLatitude: '',
       cityData: {}, // data coming from axios is in the form of an object so set container to object
       error: false,
       errorMessage: ''
@@ -29,7 +31,7 @@ class App extends React.Component {
       let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city}&format=json`
 
       let cityDataFromAxios = await axios.get(url);
-
+      console.log(cityDataFromAxios.data);
       this.setState({
         cityData: cityDataFromAxios.data[0],
         error: false
@@ -61,9 +63,14 @@ class App extends React.Component {
         {
           this.state.error
             ? <p>{this.state.errorMessage}</p>
-            : <p>{this.state.cityData.display_name}</p>
+            : <ul>
+              <ul>{this.state.cityData.display_name}</ul>
+              <ul>{this.state.cityData.lon}</ul>
+              <ul>{this.state.cityData.lat}</ul>
+            </ul>
+
         }
-      
+
 
       </>
     )
