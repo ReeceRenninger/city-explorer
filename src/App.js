@@ -1,6 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Image from 'react-bootstrap/Image'
+import './App.css'
+// import image from 'react-bootstrap/Image'
 
 class App extends React.Component {
   constructor(props) {
@@ -8,6 +12,8 @@ class App extends React.Component {
     this.state = {
       locationData: [],
       city: '',
+      cityLongitude: '',
+      cityLatitude: '',
       cityData: {}, // data coming from axios is in the form of an object so set container to object
       error: false,
       errorMessage: ''
@@ -29,7 +35,7 @@ class App extends React.Component {
       let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city}&format=json`
 
       let cityDataFromAxios = await axios.get(url);
-
+      console.log(cityDataFromAxios.data);
       this.setState({
         cityData: cityDataFromAxios.data[0],
         error: false
@@ -48,22 +54,28 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <h1>API Calls Baby!</h1>
+        <h1>API Calls!</h1>
 
-        <form onSubmit={this.getCityData}>
-          <label>
-            <input type="text" onChange={this.handleCityInput} />
-          </label>
-          <button type="submit">Explore!</button>
-        </form>
+        <Form onSubmit={this.getCityData}>
+          <Form.Label>City Explorer</Form.Label>
+            <Form.Control type="text" placeholder="Enter a city name here" onChange={this.handleCityInput} />
+          <Button variant="info" type="submit">Explore!</Button>
+        </Form>
 
         {/* TERNARY - WTF  */}
         {
           this.state.error
             ? <p>{this.state.errorMessage}</p>
-            : <p>{this.state.cityData.display_name}</p>
+            : Object.keys(this.state.cityData).length > 0 && 
+            <ul>
+              <p>{this.state.cityData.display_name}</p>
+              <p>{this.state.cityData.lon}</p>
+              <p>{this.state.cityData.lat}</p>
+              <Image class="img-fluid" src= {`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=13`} alt='Map of selected location'/>
+            </ul>
+
         }
-      
+
 
       </>
     )
@@ -71,8 +83,7 @@ class App extends React.Component {
 }
 // ** async/await - handle our asynchronous code
 // ** try/catch - handle our errors - TRY resolve our successful promises & CATCh handle rejected promises
-// !! MAP PORTION OF YOUR LAB IMG SRC POINTS TO THIS URL:
-// !! https://maps.locationiq.com/v3/staticmap?key=pk.c99fe602101eebe5bbeb4261bd09aa7d&center=47.6038321,-122.330062&zoom=13
+
 
 
 
