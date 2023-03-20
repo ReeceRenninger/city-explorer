@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+// import image from 'react-bootstrap/Image'
 
 class App extends React.Component {
   constructor(props) {
@@ -63,10 +63,12 @@ class App extends React.Component {
         {
           this.state.error
             ? <p>{this.state.errorMessage}</p>
-            : <ul>
-              <ul>{this.state.cityData.display_name}</ul>
-              <ul>{this.state.cityData.lon}</ul>
-              <ul>{this.state.cityData.lat}</ul>
+            : Object.keys(this.state.cityData).length > 0 && 
+            <ul>
+              <p>{this.state.cityData.display_name}</p>
+              <p>{this.state.cityData.lon}</p>
+              <p>{this.state.cityData.lat}</p>
+              <img src= {`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=13`} alt='Map of selected location'/>
             </ul>
 
         }
@@ -78,8 +80,7 @@ class App extends React.Component {
 }
 // ** async/await - handle our asynchronous code
 // ** try/catch - handle our errors - TRY resolve our successful promises & CATCh handle rejected promises
-// !! MAP PORTION OF YOUR LAB IMG SRC POINTS TO THIS URL:
-// !! https://maps.locationiq.com/v3/staticmap?key=pk.c99fe602101eebe5bbeb4261bd09aa7d&center=47.6038321,-122.330062&zoom=13
+
 
 
 
