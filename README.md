@@ -30,7 +30,7 @@ Start time: 12:45
 
 Finish time: 14:51
 
-Actual time needed to complete:
+Actual time needed to complete: 126 minutes
 
 03/20/2023 14:23 - Application is now fully connecting to LocationIQ to get city information and display lat, lon, and image.
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
