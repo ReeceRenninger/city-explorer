@@ -26,6 +26,19 @@ class App extends React.Component {
 
     })
   }
+  //  TODO: STARTING TO CONNECT TO BACKEND
+  handleSubmit = (e) => {
+    e.preventDefault();
+    // TODO: USE AXIOS TO HIT API(BACKEND)
+    //TODO: SET THAT INFORMATION TO STATE
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/weather?`
+
+      
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
 
   getCityData = async (event) => {
     event.preventDefault();
