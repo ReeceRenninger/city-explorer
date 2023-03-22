@@ -17,7 +17,7 @@ class App extends React.Component {
       cityData: {}, // data coming from axios is in the form of an object so set container to object
       cityLon: '',
       cityLat: '',
-      cityWeather: [],
+      cityWeather: [], // data to be filled via server built with static file
       error: false,
       errorMessage: ''
     }
@@ -31,7 +31,7 @@ class App extends React.Component {
   }
  
   handleSubmit = async (event) => {
-    event.preventDefault(event);
+    event.preventDefault();
 
     try {
       this.getCityData();
