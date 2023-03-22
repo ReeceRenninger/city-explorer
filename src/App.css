@@ -38,3 +38,13 @@ img {
 body {
   color: #1C1D21;
 }
+
+.cards {
+  display: inline-block !important;
+  justify-content: center !important;
+  text-align: center;
+  width:fit-content;
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+}
