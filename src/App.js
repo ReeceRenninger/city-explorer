@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image';
 import Weather from './Weather';
+import LocationCords from './LocationCords';
 import './App.css'
 // import image from 'react-bootstrap/Image'
 
@@ -14,6 +15,8 @@ class App extends React.Component {
       locationData: [],
       city: '',
       cityData: {}, // data coming from axios is in the form of an object so set container to object
+      cityLon: '',
+      cityLat: '',
       cityWeather: [],
       error: false,
       errorMessage: ''
@@ -91,8 +94,11 @@ class App extends React.Component {
             <ul>
               <p>{this.state.cityData.display_name}</p>
               <Image src= {`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=13`} alt='Map of selected location'/>
-              <p>{this.state.cityData.lon}</p>
-              <p>{this.state.cityData.lat}</p>
+              <LocationCords 
+              cityData={this.state.cityData}
+              
+              />
+             
             </ul>
 
         }
