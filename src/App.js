@@ -79,6 +79,18 @@ class App extends React.Component {
       });
     }
   }
+
+  getMovies = async () => {
+    try {
+      
+    } catch (error) {
+      console.log(error.message);
+      this.setState({
+        error: true,
+        errorMessage: error.message
+      })
+    }
+  }
   
 
   render() {
