@@ -107,7 +107,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <h1>API Calls!</h1>
+        <h1>Welcome to City Explorer!</h1>
 
         <Form onSubmit={this.getCityData}>
           <Form.Label>City Explorer</Form.Label>
