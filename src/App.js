@@ -39,11 +39,11 @@ class App extends React.Component {
       let cityDataFromAxios = await axios.get(url);
 
       this.setState({
-        cityData: cityDataFromAxios.data[0], // grabs the first instance of Seattle in data 
+        cityData: cityDataFromAxios.data[0], // grabs the first instance of User inputted city name in data 
         error: false
       });
 
-      //TODO: handleWeather
+      //TODO: handleWeather, utilizing cords from LOCATIONIQ to send to our backend weather API to get the city weather info. Pass the lat and lon as arguments to the handler below
       let lat = cityDataFromAxios.data[0].lat;
       let lon = cityDataFromAxios.data[0].lon;
       this.handleWeather(lat, lon);
