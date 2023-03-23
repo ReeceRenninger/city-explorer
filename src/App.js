@@ -30,7 +30,7 @@ class App extends React.Component {
     })
   }
   //!! main grabber of API location IQ grabs information and passes it to other APIs 
-  
+
   getCityData = async (event) => {
     event.preventDefault();
 
@@ -77,7 +77,7 @@ class App extends React.Component {
       });
 
     } catch (error) {
-      console.log('HandleSubmit' + error.message);
+      console.log('HandleWeather' + error.message);
       this.setState({
         error: true,
         errorMessage: error.message
