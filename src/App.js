@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image';
 import Weather from './Weather';
+import Movies from './Movies';
 import LocationCords from './LocationCords';
 import './App.css'
 // import image from 'react-bootstrap/Image'
@@ -15,8 +16,6 @@ class App extends React.Component {
       locationData: [],
       city: '',
       cityData: {}, // data coming from axios is in the form of an object so set container to object
-      cityLon: '',
-      cityLat: '',
       cityWeather: [],
       movieInfo: [], // data to be filled via server built with static file
       error: false,
@@ -44,10 +43,13 @@ class App extends React.Component {
         error: false
       });
 
-      //TODO: WEATHER HANDLER 
+      //TODO: handleWeather
       let lat = cityDataFromAxios.data[0].lat;
       let lon = cityDataFromAxios.data[0].lon;
       this.handleWeather(lat, lon);
+
+      //TODO: getMovies
+      this.getMovies();
 
     } catch (error) {
       console.log('GetCityData' + error.message)
@@ -118,13 +120,13 @@ class App extends React.Component {
             ? <p>{this.state.errorMessage}</p>
             : Object.keys(this.state.cityData).length > 0 &&
             <ul>
-              <p>{this.state.cityData.display_name}</p>
+              <h2>{this.state.cityData.display_name}</h2>
               <LocationCords
                 cityData={this.state.cityData}
               />
-              <Image src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=13`} alt='Map of selected location' />
+              <Image id='cityMap' src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=13`} alt='Map of selected location' />
               <Weather cityWeather={this.state.cityWeather} />
-
+              <Movies movieInfo={this.state.movieInfo}/>
 
 
             </ul>

@@ -5,11 +5,11 @@ class Weather extends React.Component {
   render() {
 
     return (
-      <>
+      <section className='cards'>
         {this.props.cityWeather.map((day, idx) => {
           return (
 
-              <Card key={idx} className="cards" style={{ width: '18rem' }}>
+              <Card key={idx} style={{ width: '18rem' }}>
                 <Card.Body>
 
                   <Card.Title>{day.date}</Card.Title>
@@ -22,11 +22,8 @@ class Weather extends React.Component {
           )
         })}
 
-      </>
+      </section>
     )
-
-
-
 
   }
 }
