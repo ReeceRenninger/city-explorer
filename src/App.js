@@ -30,6 +30,7 @@ class App extends React.Component {
     })
   }
   //!! main grabber of API location IQ grabs information and passes it to other APIs 
+  
   getCityData = async (event) => {
     event.preventDefault();
 
