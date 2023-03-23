@@ -3,7 +3,16 @@ h1{
   display: block !important;
   color: #CCBCBC;
 }
-
+h2{
+  color: #7CEA9C;
+  text-align: center;
+}
+#cords{
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
 form {
   text-align: center;
   display: block !important;
@@ -27,7 +36,7 @@ ul {
   display: block !important; 
 }
 
-img {
+#cityMap {
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
@@ -37,4 +46,19 @@ img {
 
 body {
   color: #1C1D21;
+}
+
+.cards {
+display: flex;
+flex: wrap;
+justify-content: space-evenly;
+padding-top: 5px;
+}
+
+.carousel-caption{
+  background-color: #1c1d21;
+  border-radius: 10%;
+}
+.carousel-text{
+  color: #ccbcbc!important;
 }
