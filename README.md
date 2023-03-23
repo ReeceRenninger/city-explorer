@@ -24,7 +24,7 @@ Recreating this website would require you to generate a project through React in
 
 ### Feature One: Connection to LocationIQ and ability to render map
 
-Estimate of time needed to complete: 120 minutes
+Estimate of time needed to complete: 120 minutes(~2 hours)
 
 Start time: 12:45
 
@@ -32,7 +32,18 @@ Finish time: 14:51
 
 Actual time needed to complete: 126 minutes
 
+### Feature Two: API Calls to Backend and sending API information to my built server
+
+Estimate of time needed to complete: 120 to 180 minutes (~2 to 3 hours)
+
+Start time: 12:30
+
+Finish time: 17:30
+
+Actual time needed to complete: 5 hours
+
 03/20/2023 14:23 - Application is now fully connecting to LocationIQ to get city information and display lat, lon, and image.
+03/22/2023 17:30 - Application now has fully functional backend server that is requesting from two separate APIs for movie and weather data. Elements are designed with boot strap components to allow for better visuals and accessibility.
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
