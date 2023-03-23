@@ -6,7 +6,7 @@ import Movie from './Movie'
 class Movies extends React.Component {
   render() {
     return (
-      <Container>
+      <Container className='container'>
         <Carousel >
           {this.props.movieInfo.map((movie, idx) => {
             return (
